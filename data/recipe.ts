@@ -1,7 +1,9 @@
 
-import type { Ingredient, Step, IngredientDetail } from '../types';
+import type { Ingredient, Step, IngredientDetail, Recipe } from '../types';
 
-export const INGREDIENTS: Ingredient[] = [
+// --- DADOS DO BAIÃO DE DOIS ---
+
+const INGREDIENTS_BAIAO: Ingredient[] = [
   { category: 'Grãos', name: 'Feijão-de-corda (ou fradinho)', quantity: '500 g', notes: 'Deixar de molho na véspera.', emoji: '🫘' },
   { category: 'Grãos', name: 'Arroz Agulhinha', quantity: '2 xícaras (chá)', notes: 'Lavado e escorrido.', emoji: '🍚' },
   { category: 'Proteínas', name: 'Carne-seca', quantity: '300 g', notes: 'Dessalgada, cozida e desfiada.', emoji: '🥩' },
@@ -17,7 +19,7 @@ export const INGREDIENTS: Ingredient[] = [
   { category: 'Finalização', name: 'Sal e Pimenta-do-reino', quantity: 'a gosto', emoji: '🧂' },
 ];
 
-export const RECIPE_STEPS: Step[] = [
+const RECIPE_STEPS_BAIAO: Step[] = [
   {
     id: 1,
     phase: "Mise en Place",
@@ -121,7 +123,7 @@ export const RECIPE_STEPS: Step[] = [
   }
 ];
 
-export const INGREDIENT_INFO: Record<string, IngredientDetail> = {
+const INGREDIENT_INFO_BAIAO: Record<string, IngredientDetail> = {
   'Feijão-de-corda': {
     title: 'Feijão-de-Corda: A Alma do Sertão',
     description: 'Também conhecido como feijão fradinho, é a escolha tradicional por ser resistente ao clima árido e por manter sua integridade após o cozimento, resultando numa textura menos caldosa, perfeita para a mistura com o arroz.',
@@ -148,3 +150,135 @@ export const INGREDIENT_INFO: Record<string, IngredientDetail> = {
     emoji: '🌶️',
   }
 };
+
+const BAIAO_DE_DOIS_RECIPE: Recipe = {
+  key: 'baiaoDeDois',
+  title: 'Baião de Dois',
+  subtitle: 'Um Retrato Culinário do Sertão',
+  intro: 'Uma jornada culinária passo a passo para criar o autêntico e delicioso Baião de Dois, um tesouro do sertão brasileiro.',
+  ingredients: INGREDIENTS_BAIAO,
+  steps: RECIPE_STEPS_BAIAO,
+  ingredientInfo: INGREDIENT_INFO_BAIAO,
+};
+
+// --- DADOS DA VACA ATOLADA ---
+
+const INGREDIENTS_VACA: Ingredient[] = [
+  { category: 'Proteínas', name: 'Costela Bovina', quantity: '1.5 kg', notes: 'Em pedaços, com osso', emoji: '🐄' },
+  { category: 'Raízes', name: 'Mandioca', quantity: '1 kg', notes: 'Também conhecida como aipim ou macaxeira', emoji: '🥔' },
+  { category: 'Aromáticos', name: 'Cebola grande', quantity: '2 unidades', notes: 'Picadas', emoji: '🧅' },
+  { category: 'Aromáticos', name: 'Dentes de Alho', quantity: '4 unidades', notes: 'Amassados', emoji: '🧄' },
+  { category: 'Aromáticos', name: 'Tomate maduro', quantity: '3 unidades', notes: 'Sem sementes, picados', emoji: '🍅' },
+  { category: 'Finalização', name: 'Cheiro-verde', quantity: 'a gosto', notes: 'Salsa e cebolinha picados', emoji: '🌿' },
+  { category: 'Gorduras', name: 'Óleo ou Banha', quantity: '3 colheres (sopa)', emoji: '🍳' },
+  { category: 'Temperos', name: 'Colorau (Urucum)', quantity: '1 colher (chá)', emoji: '🌶️' },
+  { category: 'Temperos', name: 'Sal e Pimenta-do-reino', quantity: 'a gosto', emoji: '🧂' },
+];
+
+const RECIPE_STEPS_VACA: Step[] = [
+  {
+    id: 1,
+    phase: "Fundação do Sabor",
+    title: "Selando a Costela",
+    description: "Este é o passo mais crucial para um sabor profundo. A Reação de Maillard cria uma crosta rica em sabor que é a base de todo o prato.",
+    ingredients: ["Costela Bovina", "Sal e Pimenta-do-reino", "Óleo ou Banha"],
+    instructions: [
+      "Tempere os pedaços de costela com sal e pimenta-do-reino.",
+      "Em uma panela de pressão grande, aqueça o óleo ou a banha em fogo alto.",
+      "Doure a carne em levas, sem amontoar, até que todos os lados estejam bem corados.",
+      "Retire a carne da panela e reserve."
+    ],
+    emoji: "🔥",
+  },
+  {
+    id: 2,
+    phase: "Construindo Sabor",
+    title: "O Refogado Aromático",
+    description: "Usando a gordura saborosa da carne, vamos criar a base que perfumará todo o prato. O 'fond' (crostinha no fundo da panela) é puro sabor!",
+    ingredients: ["Cebola grande", "Dentes de Alho", "Tomate maduro", "Colorau (Urucum)"],
+    instructions: [
+      "Na mesma panela, adicione a cebola picada e refogue até ficar translúcida.",
+      "Acrescente o alho amassado e refogue por mais um minuto, até perfumar.",
+      "Junte o tomate picado e o colorau. Cozinhe, mexendo e raspando o fundo da panela, até o tomate começar a desmanchar."
+    ],
+    emoji: "🧅",
+  },
+  {
+    id: 3,
+    phase: "Cozimento Lento",
+    title: "A Magia da Pressão",
+    description: "Agora, a pressão e o tempo farão sua mágica, transformando o colágeno da costela em gelatina e deixando a carne incrivelmente macia.",
+    ingredients: [],
+    instructions: [
+      "Retorne a carne selada para a panela e misture com o refogado.",
+      "Adicione água quente suficiente para quase cobrir a carne.",
+      "Tampe a panela de pressão e, após pegar pressão, cozinhe em fogo baixo por 50 a 60 minutos."
+    ],
+    emoji: "💨",
+  },
+  {
+    id: 4,
+    phase: "A União Perfeita",
+    title: "Adicionando a Mandioca",
+    description: "Com a carne macia, é hora de adicionar a mandioca, que cozinhará no caldo saboroso, engrossando-o e completando o prato.",
+    ingredients: ["Mandioca"],
+    instructions: [
+      "Retire a pressão da panela com segurança e abra a tampa.",
+      "Verifique se a carne está macia. Se não estiver, cozinhe por mais tempo.",
+      "Adicione os pedaços de mandioca ao caldo.",
+      "Tampe novamente e cozinhe na pressão por mais 15 a 20 minutos, ou até a mandioca ficar bem macia, quase desmanchando."
+    ],
+    emoji: "🤝",
+  },
+  {
+    id: 5,
+    phase: "Finalização",
+    title: "O Toque Final",
+    description: "O prato está quase pronto! Um toque de frescor e os ajustes finais para servir esta obra-prima da cozinha caipira.",
+    ingredients: ["Sal e Pimenta-do-reino", "Cheiro-verde"],
+    instructions: [
+      "Abra a panela novamente com cuidado. O caldo deve estar grosso e cremoso, com alguns pedaços de mandioca inteiros e outros desmanchados.",
+      "Prove e ajuste o sal e a pimenta-do-reino.",
+      "Com o fogo desligado, finalize com o cheiro-verde picado.",
+      "Sirva imediatamente, bem quente, acompanhado de arroz branco."
+    ],
+    emoji: "🌿",
+  }
+];
+
+const INGREDIENT_INFO_VACA: Record<string, IngredientDetail> = {
+  'Costela Bovina': {
+    title: 'Costela Bovina: A Alma do Prato',
+    description: 'A estrela da Vaca Atolada. Rica em colágeno e gordura, seu cozimento lento resulta em uma carne que se desfaz na boca e um caldo de sabor incomparável.',
+    emoji: '🐄',
+  },
+  'Mandioca': {
+    title: 'Mandioca: A Base da Terra',
+    description: 'Também chamada de aipim ou macaxeira, é o que dá nome e textura ao prato. Ao cozinhar, ela se desfaz parcialmente, criando um creme aveludado que "atola" a carne.',
+    emoji: '🥔',
+  },
+  'Cheiro-verde': {
+    title: 'Cheiro-Verde: O Frescor Final',
+    description: 'A mistura de salsa e cebolinha, adicionada no final, corta a riqueza do prato com seu aroma e sabor vibrantes, trazendo equilíbrio e um acabamento perfeito.',
+    emoji: '🌿',
+  }
+};
+
+const VACA_ATOLADA_RECIPE: Recipe = {
+  key: 'vacaAtolada',
+  title: 'Vaca Atolada',
+  subtitle: 'Uma Imersão na Cozinha Caipira',
+  intro: 'Uma jornada culinária passo a passo para criar a autêntica e reconfortante Vaca Atolada, um clássico da cozinha do interior do Brasil.',
+  ingredients: INGREDIENTS_VACA,
+  steps: RECIPE_STEPS_VACA,
+  ingredientInfo: INGREDIENT_INFO_VACA,
+};
+
+// --- EXPORTAÇÃO UNIFICADA ---
+
+export const RECIPES = {
+  baiaoDeDois: BAIAO_DE_DOIS_RECIPE,
+  vacaAtolada: VACA_ATOLADA_RECIPE,
+};
+
+export type RecipeKey = keyof typeof RECIPES;

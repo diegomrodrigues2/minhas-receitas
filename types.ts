@@ -23,3 +23,13 @@ export interface IngredientDetail {
   description: string;
   emoji: string;
 }
+
+export interface Recipe {
+  key: string;
+  title: string;
+  subtitle: string;
+  intro: string;
+  ingredients: Ingredient[];
+  steps: Step[];
+  ingredientInfo: Record<string, IngredientDetail>;
+}
