@@ -1,4 +1,3 @@
-
 import type { Ingredient, Step, IngredientDetail, Recipe } from '../types';
 
 // --- DADOS DO BAIÃO DE DOIS ---
@@ -274,11 +273,261 @@ const VACA_ATOLADA_RECIPE: Recipe = {
   ingredientInfo: INGREDIENT_INFO_VACA,
 };
 
+// --- DADOS DA PORCA ATOLADA ---
+
+const INGREDIENTS_PORCA: Ingredient[] = [
+  { category: 'Proteínas', name: 'Costela Suína', quantity: '1.5 kg', notes: 'Em pedaços, com osso', emoji: '🐖' },
+  { category: 'Raízes', name: 'Mandioca', quantity: '1 kg', notes: 'Aipim/macaxeira, em pedaços grandes', emoji: '🥔' },
+  { category: 'Aromáticos', name: 'Cebola grande', quantity: '2 unidades', notes: 'Picadas', emoji: '🧅' },
+  { category: 'Aromáticos', name: 'Dentes de Alho', quantity: '4 unidades', notes: 'Amassados', emoji: '🧄' },
+  { category: 'Aromáticos', name: 'Tomate maduro', quantity: '3 unidades', notes: 'Sem sementes, picados', emoji: '🍅' },
+  { category: 'Finalização', name: 'Cheiro-verde', quantity: 'a gosto', notes: 'Salsa e cebolinha picados', emoji: '🌿' },
+  { category: 'Gorduras', name: 'Óleo ou Banha', quantity: '1-2 colheres (sopa)', emoji: '🍳' },
+  { category: 'Temperos', name: 'Colorau (Urucum)', quantity: '1 colher (chá)', emoji: '🌶️' },
+  { category: 'Temperos', name: 'Folha de Louro', quantity: '1 unidade', notes: 'Opcional', emoji: '🍃' },
+  { category: 'Temperos', name: 'Cominho ou Páprica', quantity: '½-1 colher (chá)', notes: 'Opcional', emoji: '🥄' },
+  { category: 'Temperos', name: 'Toque Ácido', quantity: 'um pouco', notes: 'Suco de limão, vinagre, cachaça ou cerveja', emoji: '🍋' },
+  { category: 'Temperos', name: 'Sal e Pimenta-do-reino', quantity: 'a gosto', emoji: '🧂' },
+];
+
+const RECIPE_STEPS_PORCA: Step[] = [
+  {
+    id: 1,
+    phase: "Fundação do Sabor",
+    title: "Selando a Costela Suína",
+    description: "O segredo para um sabor profundo. Dourar a costela suína cria uma crosta rica que é a base do prato. Não tenha pressa nesta etapa!",
+    ingredients: ["Costela Suína", "Sal e Pimenta-do-reino", "Óleo ou Banha"],
+    instructions: [
+      "Tempere a costela com sal e pimenta (se puder, com 12h de antecedência na geladeira).",
+      "Aqueça 1-2 colheres de sopa de óleo/banha na panela de pressão em fogo alto.",
+      "Doure a carne em levas, sem amontoar, até que todos os lados estejam bem corados.",
+      "Retire a carne da panela e reserve."
+    ],
+    emoji: "🔥",
+  },
+  {
+    id: 2,
+    phase: "Construindo Sabor",
+    title: "O Refogado Aromático",
+    description: "Usando a gordura saborosa da carne, vamos criar a base que perfumará todo o prato. O 'fond' (crostinha no fundo da panela) é puro sabor!",
+    ingredients: ["Cebola grande", "Dentes de Alho", "Tomate maduro", "Colorau (Urucum)", "Folha de Louro", "Cominho ou Páprica", "Toque Ácido"],
+    instructions: [
+      "Na gordura da panela, refogue a cebola até murchar.",
+      "Adicione o alho e refogue por mais um minuto.",
+      "Junte o tomate, o colorau e os temperos secos (louro, cominho/páprica).",
+      "Deglaceie o fundo da panela com sua escolha ácida (limão/cerveja/cachaça/vinagre), raspando todo o sabor agarrado."
+    ],
+    emoji: "🧅",
+  },
+  {
+    id: 3,
+    phase: "Cozimento Lento",
+    title: "A Magia da Pressão (Porco)",
+    description: "Agora, a pressão e o tempo farão sua mágica, transformando a costela suína em uma carne incrivelmente macia.",
+    ingredients: [],
+    instructions: [
+      "Retorne a costela suína para a panela e misture com o refogado.",
+      "Adicione água quente suficiente para quase cobrir a carne.",
+      "Tampe a panela e, após pegar pressão, cozinhe em fogo baixo por 25-30 minutos (costela comum) ou 18-22 minutos (costelinha)."
+    ],
+    emoji: "💨",
+    parallelHint: "A carne deve estar macia, mas sem desmanchar totalmente, pois ainda cozinhará com a mandioca."
+  },
+  {
+    id: 4,
+    phase: "A União Perfeita",
+    title: "Adicionando a Mandioca",
+    description: "Com a carne macia, é hora de adicionar a mandioca, que cozinhará no caldo saboroso, engrossando-o e completando o prato.",
+    ingredients: ["Mandioca"],
+    instructions: [
+      "Retire a pressão da panela com segurança e abra a tampa.",
+      "Adicione os pedaços de mandioca ao caldo. Se necessário, ajuste a água para que o líquido cubra metade dos ingredientes.",
+      "Tampe novamente e cozinhe na pressão por mais 12 a 15 minutos, ou até a mandioca ficar bem macia, quase desmanchando."
+    ],
+    emoji: "🤝",
+  },
+  {
+    id: 5,
+    phase: "Finalização",
+    title: "O Toque Final",
+    description: "O prato está quase pronto! Um toque de frescor e os ajustes finais para servir esta obra-prima da cozinha caipira.",
+    ingredients: ["Sal e Pimenta-do-reino", "Cheiro-verde"],
+    instructions: [
+      "Abra a panela novamente com cuidado. O caldo deve estar grosso e cremoso, com alguns pedaços de mandioca inteiros e outros desmanchados.",
+      "Se a superfície estiver muito gordurosa, retire o excesso com uma concha.",
+      "Prove e ajuste o sal e a pimenta-do-reino.",
+      "Com o fogo desligado, finalize com o cheiro-verde picado e sirva imediatamente."
+    ],
+    emoji: "🌿",
+  }
+];
+
+const INGREDIENT_INFO_PORCA: Record<string, IngredientDetail> = {
+  'Costela Suína': {
+    title: 'Costela Suína: Suculência e Sabor',
+    description: 'Mais delicada que a bovina, a costela suína cozinha mais rápido e solta uma gordura que deixa o caldo rico e saboroso. A escolha por ela cria uma versão ligeiramente mais adocicada do prato.',
+    emoji: '🐖',
+  },
+  'Mandioca': {
+    title: 'Mandioca: A Base da Terra',
+    description: 'Também chamada de aipim ou macaxeira, é o que dá nome e textura ao prato. Ao cozinhar, ela se desfaz parcialmente, criando um creme aveludado que "atola" a carne.',
+    emoji: '🥔',
+  },
+  'Toque Ácido': {
+    title: 'O Equilíbrio Ácido',
+    description: 'A carne de porco tem um sabor naturalmente mais adocicado. Um toque de acidez (limão, vinagre, cachaça ou cerveja) no refogado corta essa doçura, equilibra a gordura e complexifica o sabor final do prato.',
+    emoji: '🍋',
+  }
+};
+
+const PORCA_ATOLADA_RECIPE: Recipe = {
+  key: 'porcaAtolada',
+  title: 'Porca Atolada',
+  subtitle: 'A Versão Suína do Clássico Caipira',
+  intro: 'Uma jornada culinária passo a passo para criar a reconfortante Porca Atolada, uma variação igualmente tradicional e deliciosa com a suculência da costela suína.',
+  ingredients: INGREDIENTS_PORCA,
+  steps: RECIPE_STEPS_PORCA,
+  ingredientInfo: INGREDIENT_INFO_PORCA,
+};
+
+// --- DADOS DO YAKISOBA ---
+
+const INGREDIENTS_YAKISOBA: Ingredient[] = [
+  { category: 'Macarrão', name: 'Macarrão para Yakisoba (chukamen)', quantity: '500g', emoji: '🍜' },
+  { category: 'Proteínas', name: 'Alcatra em tiras finas', quantity: '250g', emoji: '🥩' },
+  { category: 'Proteínas', name: 'Peito de frango em cubos', quantity: '250g', emoji: '🍗' },
+  { category: 'Vegetais', name: 'Repolho', quantity: '1/4 médio', notes: 'Cortado em pedaços de 4 cm', emoji: '🥬' },
+  { category: 'Vegetais', name: 'Cenoura', quantity: '1 grande', notes: 'Cortada em rodelas finas', emoji: '🥕' },
+  { category: 'Vegetais', name: 'Cebola', quantity: '1 média', notes: 'Cortada em pétalas', emoji: '🧅' },
+  { category: 'Vegetais', name: 'Brócolis', quantity: '1 xícara', notes: 'Em floretes', emoji: '🥦' },
+  { category: 'Vegetais', name: 'Couve-flor', quantity: '1 xícara', notes: 'Em floretes', emoji: '🥦' },
+  { category: 'Para o Molho', name: 'Molho de Soja (Shoyu)', quantity: '1 xícara (240 ml)', emoji: '🍶' },
+  { category: 'Para o Molho', name: 'Água', quantity: '1/2 xícara (120 ml)', emoji: '💧' },
+  { category: 'Para o Molho', name: 'Molho de Ostra', quantity: '2 colheres (sopa)', emoji: '🦪' },
+  { category: 'Para o Molho', name: 'Sakê Mirin', quantity: '2 colheres (sopa)', emoji: '🍶' },
+  { category: 'Para o Molho', name: 'Açúcar', quantity: '1 colher (sopa)', emoji: '🍬' },
+  { category: 'Para o Molho', name: 'Óleo de Gergelim Torrado', quantity: '1 colher (sopa)', emoji: '🏺' },
+  { category: 'Para o Molho', name: 'Amido de Milho', quantity: '2 colheres (sopa)', notes: 'Para engrossar', emoji: '🌽' },
+  { category: 'Para o Molho', name: 'Água fria', quantity: '1/2 xícara (120 ml)', notes: 'Para dissolver o amido', emoji: '💧' },
+  { category: 'Para o Cozimento', name: 'Óleo Vegetal', quantity: '3-4 colheres (sopa)', emoji: '🍳' },
+];
+
+const RECIPE_STEPS_YAKISOBA: Step[] = [
+  {
+    id: 1,
+    phase: "Preparo Prévio",
+    title: "O Macarrão: Textura Perfeita",
+    description: "O segredo para um bom yakisoba começa com a textura do macarrão. Cozinhe-o 'al dente' e dê um choque térmico para interromper o cozimento e garantir que ele fique firme.",
+    ingredients: ["Macarrão para Yakisoba (chukamen)"],
+    instructions: [
+      "Ferva uma panela grande com água e uma pitada de sal.",
+      "Cozinhe o macarrão por 1 a 2 minutos a menos do que o indicado na embalagem.",
+      "Escorra imediatamente e passe em água fria corrente para interromper o cozimento (choque térmico).",
+      "Regue com um fio de óleo para não grudar e reserve."
+    ],
+    emoji: "🍜",
+    parallelHint: "Enquanto a água ferve, prepare o molho: misture o shoyu, 1/2 xícara de água, molho de ostra, sakê mirin, açúcar e óleo de gergelim. Em outra tigela, dissolva o amido na 1/2 xícara de água fria."
+  },
+  {
+    id: 2,
+    phase: "Construindo Sabor",
+    title: "Selando as Proteínas",
+    description: "Vamos criar a base de sabor do prato dourando as carnes em fogo alto. A Reação de Maillard vai garantir um sabor tostado e profundo.",
+    ingredients: ["Alcatra em tiras finas", "Peito de frango em cubos", "Óleo Vegetal"],
+    instructions: [
+      "Aqueça 2 colheres de óleo em uma wok ou frigideira grande em fogo alto.",
+      "Adicione as carnes, sem superlotar a panela (faça em levas, se necessário).",
+      "Sele todos os lados até dourar bem.",
+      "Retire as proteínas da wok e reserve-as."
+    ],
+    emoji: "🥩",
+  },
+  {
+    id: 3,
+    phase: "Construindo Sabor",
+    title: "Salteando os Vegetais",
+    description: "O objetivo é cozinhar os vegetais rapidamente para que fiquem macios, mas ainda crocantes ('al dente'). A ordem de entrada na panela é crucial.",
+    ingredients: ["Cenoura", "Brócolis", "Couve-flor", "Cebola", "Repolho"],
+    instructions: [
+      "Na mesma wok, adicione mais uma colher de óleo se necessário.",
+      "Adicione os vegetais mais duros: a cenoura, o brócolis e a couve-flor. Salteie por 2-3 minutos.",
+      "Adicione os vegetais mais macios: a cebola e o repolho. Salteie por mais 2 minutos, mexendo sempre.",
+      "Os vegetais devem murchar levemente, mas permanecer crocantes."
+    ],
+    emoji: "🥕",
+  },
+  {
+    id: 4,
+    phase: "Montagem Final",
+    title: "A Grande União",
+    description: "Agora vem a mágica! Vamos unir todos os componentes com o molho, que irá engrossar e cobrir tudo com uma camada brilhante e saborosa.",
+    ingredients: ["Molho de Soja (Shoyu)"],
+    instructions: [
+      "Retorne as proteínas cozidas à wok com os vegetais.",
+      "Adicione o macarrão cozido e misture delicadamente.",
+      "Dê uma última mexida na mistura do molho e despeje sobre a wok.",
+      "Continue a mexer em fogo alto. Em 1-2 minutos, o molho irá engrossar. Sirva imediatamente."
+    ],
+    emoji: "🧑‍🍳",
+  },
+  {
+    id: 5,
+    phase: "Finalização",
+    title: "Servindo a Obra-Prima",
+    description: "As guarnições tradicionais não são apenas decorativas; elas adicionam camadas de sabor, textura e aroma que completam o prato.",
+    ingredients: [],
+    instructions: [
+        "Sirva o yakisoba bem quente em tigelas individuais.",
+        "Para uma experiência autêntica, guarneça com:",
+        "<b>Beni Shōga</b> (gengibre em conserva) para acidez.",
+        "<b>Aonori</b> (alga em pó) para um toque marinho.",
+        "<b>Katsuobushi</b> (flocos de peixe seco) para um sabor umami defumado."
+    ],
+    emoji: "🥢",
+  }
+];
+
+const INGREDIENT_INFO_YAKISOBA: Record<string, IngredientDetail> = {
+  'Macarrão para Yakisoba': {
+    title: 'O Macarrão: O Falso "Soba"',
+    description: 'Apesar do nome, o Yakisoba não usa macarrão "soba". O correto é o "chukamen", um macarrão de trigo com solução alcalina (kansui), que lhe confere a cor amarelada e a textura elástica, essencial para resistir ao calor do salteado.',
+    emoji: '🍜',
+  },
+  'Molho de Soja': {
+    title: 'A Alma do Prato: O Molho',
+    description: 'A base do sabor do Yakisoba. O molho é uma sinfonia de sabores salgado (shoyu), doce (açúcar, mirin), ácido e umami (molho de ostra), criando um perfil complexo que une todos os ingredientes.',
+    emoji: '🍶',
+  },
+  'Repolho': {
+    title: 'O Coração Crocante: Repolho',
+    description: 'O repolho é um ingrediente central, não apenas por ser barato, mas por adicionar volume, doçura e uma textura crocante indispensável que contrasta com a maciez do macarrão e das proteínas.',
+    emoji: '🥬',
+  },
+  'Alcatra': {
+    title: 'As Proteínas: Base de Sabor',
+    description: 'Carnes como alcatra e frango, cortadas finas e seladas em fogo alto, criam a base de sabor do prato através da Reação de Maillard, garantindo suculência e um gosto tostado profundo.',
+    emoji: '🥩',
+  },
+};
+
+const YAKISOBA_RECIPE: Recipe = {
+  key: 'yakisoba',
+  title: 'Yakisoba',
+  subtitle: 'O Clássico Nipo-Chinês',
+  intro: 'Uma jornada culinária passo a passo para criar o autêntico e vibrante Yakisoba, um ícone da comida de rua japonesa.',
+  ingredients: INGREDIENTS_YAKISOBA,
+  steps: RECIPE_STEPS_YAKISOBA,
+  ingredientInfo: INGREDIENT_INFO_YAKISOBA,
+};
+
+
 // --- EXPORTAÇÃO UNIFICADA ---
 
 export const RECIPES = {
   baiaoDeDois: BAIAO_DE_DOIS_RECIPE,
   vacaAtolada: VACA_ATOLADA_RECIPE,
+  porcaAtolada: PORCA_ATOLADA_RECIPE,
+  yakisoba: YAKISOBA_RECIPE,
 };
 
 export type RecipeKey = keyof typeof RECIPES;

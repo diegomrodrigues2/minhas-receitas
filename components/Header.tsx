@@ -1,4 +1,3 @@
-
 import React from 'react';
 import type { RecipeKey } from '../data/recipe';
 
@@ -19,7 +18,7 @@ const Header: React.FC<HeaderProps> = ({ title, subtitle, selectedRecipe, onReci
       <div className="max-w-4xl mx-auto text-center">
         <h1 className="text-4xl font-bold font-serif">{title}</h1>
         <h2 className="text-lg font-light opacity-90 mt-1">{subtitle}</h2>
-        <nav className="mt-6 flex justify-center items-center space-x-4" aria-label="Seleção de Receitas">
+        <nav className="mt-6 flex justify-center items-center space-x-2 md:space-x-4" aria-label="Seleção de Receitas">
           <button
             onClick={() => onRecipeChange('baiaoDeDois')}
             className={`${baseButtonClass} ${selectedRecipe === 'baiaoDeDois' ? activeButtonClass : inactiveButtonClass}`}
@@ -33,6 +32,20 @@ const Header: React.FC<HeaderProps> = ({ title, subtitle, selectedRecipe, onReci
             aria-pressed={selectedRecipe === 'vacaAtolada'}
           >
             Vaca Atolada
+          </button>
+          <button
+            onClick={() => onRecipeChange('porcaAtolada')}
+            className={`${baseButtonClass} ${selectedRecipe === 'porcaAtolada' ? activeButtonClass : inactiveButtonClass}`}
+            aria-pressed={selectedRecipe === 'porcaAtolada'}
+          >
+            Porca Atolada
+          </button>
+          <button
+            onClick={() => onRecipeChange('yakisoba')}
+            className={`${baseButtonClass} ${selectedRecipe === 'yakisoba' ? activeButtonClass : inactiveButtonClass}`}
+            aria-pressed={selectedRecipe === 'yakisoba'}
+          >
+            Yakisoba
           </button>
         </nav>
       </div>
